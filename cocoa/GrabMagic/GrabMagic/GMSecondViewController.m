@@ -98,8 +98,8 @@
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     UIImageView *latestFrameImageView = [[UIImageView alloc] initWithImage:self.latestFrame];
+    latestFrameImageView.frame = CGRectMake(0.0f, 0.0f, 320.0f, 180.0f); // scaled from 1280 x 720
     [self.view addSubview:latestFrameImageView];
 }
-
 
 @end

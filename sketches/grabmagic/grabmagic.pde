@@ -218,6 +218,8 @@ void onItemSelect(int nXIndex,int nYIndex,int eDir)
   // Get the time from the video and broadcast it (The MPMoviePlayerController is time based)
   float movieTime = theMovie.time();
   socket.broadcast(""+movieTime);
+  
+  println("Movie time: " + movieTime);
    
 }
 
