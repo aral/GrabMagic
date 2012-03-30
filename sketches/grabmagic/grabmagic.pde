@@ -43,8 +43,8 @@ void setup() {
   size(screenWidth, screenHeight);
   background(0);
   
-  fs = new FullScreen(this);
-  fs.enter();
+  //fs = new FullScreen(this);
+  //fs.enter();
  
   // Start playing the movie
   theMovie = new GSMovie(this, "trailer_720p.mov");
@@ -215,9 +215,9 @@ void onItemSelect(int nXIndex,int nYIndex,int eDir)
   println("onItemSelect: nXIndex=" + nXIndex + " nYIndex=" + nYIndex + " eDir=" + eDir);
   trackPadViz.push(nXIndex,nYIndex,eDir);
   
-  // Get the frame from the video and broadcast it
-  int frame = theMovie.frame();
-  socket.broadcast(""+frame);
+  // Get the time from the video and broadcast it (The MPMoviePlayerController is time based)
+  float movieTime = theMovie.time();
+  socket.broadcast(""+movieTime);
    
 }
 
