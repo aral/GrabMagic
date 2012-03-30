@@ -33,8 +33,8 @@ int framesGesture[] = new int[numberOfPoses];
 
 // ============================================================
 
-// import fullscreen.*; 
-// FullScreen fs; 
+import fullscreen.*; 
+ FullScreen fs; 
 
 import SimpleOpenNI.*;
 import oscP5.*;
@@ -657,7 +657,7 @@ void setup()
     {
         // size(1070, 850, OPENGL); 
         // size(1070, 850); 
-        size(1170, 800);
+        size(1170, 700);
         
         pushMatrix();
         rotate(-PI/2);
@@ -666,12 +666,12 @@ void setup()
     }
     else
     {
-        size(1280, 800);
+        size(1366, 768);
         // Create the fullscreen object
-        // fs = new FullScreen(this); 
+        fs = new FullScreen(this); 
   
         // enter fullscreen mode
-        // fs.enter(); 
+        fs.enter(); 
         
         pushMatrix();
         rotate(-PI/2);
