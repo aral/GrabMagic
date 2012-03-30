@@ -1,0 +1,7 @@
+To install the software you need the following tools installed on your system:
+
+   + OpenNI and NITE
+   + Processing with the following packages installed in the "libraries" folder:
+      + SimpleOpenNI
+      + oscP5
+      + fullscreen
