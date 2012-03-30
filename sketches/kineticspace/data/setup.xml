@@ -7,7 +7,7 @@
 
 	<usemultithreading>yes</usemultithreading>
 
-	<bodypart>bothams</bodypart>
+	<bodypart>rightarm</bodypart>
 	
 	<normalize>
 		<size>yes</size>
@@ -15,59 +15,11 @@
 	</normalize>
 	
 	<weight>
-		<x>1.0</x>
-		<y>1.0</y>
-		<z>1.0</z>
+		<x>0.5</x>
+		<y>0.5</y>
+		<z>1.5</z>
 	</weight>
 	
-	<gesture>
-		<id>0</id>
-		<weight>
-			<x>1.7</x>
-			<y>1.7</y>
-			<z>1.7</z>
-		</weight>		
-	</gesture>	
-	
-	<gesture>
-		<id>1</id>
-		<frames>15</frames>
-	</gesture>	
-
-	<gesture>
-		<id>2</id>
-		<normalize_rotation>no</normalize_rotation>
-		<weight>
-			<x>0.5</x>
-			<y>0.5</y>
-			<z>1.5</z>
-		</weight>		
-	</gesture>	
-	
-	<gesture>
-		<id>3</id>
-		<bodypart>rightarm</bodypart>
-	</gesture>
-
-	<gesture>
-		<id>5</id>
-		<normalize_rotation>no</normalize_rotation>
-	</gesture>	
-
-	<gesture>
-		<id>7</id>
-		<bodypart>rightarm</bodypart>
-	</gesture>	
-	
-	<gesture>
-		<id>8</id>
-		<bodypart>rightarm</bodypart>
-		<weight>
-			<x>0.2</x>
-			<y>1.4</y>
-			<z>1.4</z>
-		</weight>		
-	</gesture>	
 </kineticspace>
 
 

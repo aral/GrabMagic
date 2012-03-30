@@ -9,7 +9,7 @@
 
 // === setup ==================================================
 boolean useFullscreen = true;
-int numberOfPoses = 10;
+int numberOfPoses = 2;
 
 // ============================================================
 
@@ -67,7 +67,7 @@ PFont fontA12;
 PImage[] foto;
 PImage[][] warnings;
 PImage shapeOfUser;  
-PImage kineticspace;
+//PImage kineticspace;
 
 boolean foundSkeleton = false;
 boolean switchDisplay = false;
@@ -631,7 +631,7 @@ void setup()
     warning[1] = -1;
 
     shapeOfUser = loadImage(dataPath("shape.png"));  
-    kineticspace = loadImage(dataPath("kinetic_space.png"));
+    //kineticspace = loadImage(dataPath("kinetic_space.png"));
   
     // enable depthMap generation 
     context.enableDepth();
@@ -661,7 +661,7 @@ void setup()
         
         pushMatrix();
         rotate(-PI/2);
-        image(kineticspace, -780, 1070);
+        //image(kineticspace, -780, 1070);
         popMatrix();
     }
     else
@@ -675,7 +675,7 @@ void setup()
         
         pushMatrix();
         rotate(-PI/2);
-        image(kineticspace, -780, 1180);
+        //image(kineticspace, -780, 1180);
         popMatrix();
     }
 }
