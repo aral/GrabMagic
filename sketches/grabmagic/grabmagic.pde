@@ -37,6 +37,8 @@ Trackpad   trackPadViz;
 int screenWidth = 1280;
 int screenHeight = 720;
 
+boolean showKinectOverlay = false;
+
 void setup() {
   size(screenWidth, screenHeight);
   background(0);
@@ -110,8 +112,8 @@ void draw(){
   image(theMovie, 0,0);
   
   // TODO: Do broadcast only when a frame is grabbed.
-  String json = "{\"frame\": 42}";
-  socket.broadcast(json);
+  //String json = "{\"frame\": 42}";
+  //socket.broadcast(json);
   
   //
   // Kinect
@@ -123,10 +125,12 @@ void draw(){
   // update nite
   context.update(sessionManager);
   
-  // draw depthImageMap
-  image(context.depthImage(),0,0, context.depthWidth()/2, context.depthHeight()/2);
   
-  trackPadViz.draw();
+  if (showKinectOverlay) {
+    // draw depthImageMap
+    image(context.depthImage(),0,0, context.depthWidth()/2, context.depthHeight()/2);
+    trackPadViz.draw();
+  }
 }
 
 //
@@ -156,6 +160,11 @@ void keyPressed()
 {
   switch(key)
   {
+  case 'o':
+    showKinectOverlay = !showKinectOverlay;
+    println("Toggling overlay…");
+    break;
+    
   case 'e':
     // end sessions
     sessionManager.EndSession();
@@ -206,6 +215,10 @@ void onItemSelect(int nXIndex,int nYIndex,int eDir)
   println("onItemSelect: nXIndex=" + nXIndex + " nYIndex=" + nYIndex + " eDir=" + eDir);
   trackPadViz.push(nXIndex,nYIndex,eDir);
   
+  // Get the frame from the video and broadcast it
+  int frame = theMovie.frame();
+  socket.broadcast(""+frame);
+   
 }
 
 void onPrimaryPointCreate(XnVHandPointContext pContext,XnPoint3D ptFocus)

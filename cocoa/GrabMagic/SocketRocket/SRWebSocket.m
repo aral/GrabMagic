@@ -273,7 +273,8 @@ typedef void (^data_callback)(SRWebSocket *webSocket,  NSData *data);
     BOOL _consumerStopped;
     
     BOOL _closeWhenFinishedWriting;
-    
+    BOOL _failed;
+
     BOOL _secure;
     NSURLRequest *_urlRequest;
 
@@ -364,8 +365,10 @@ static __strong NSData *CRLFCRLF;
 
 #endif
 
-- (void)open {
+- (void)open;
+{
     assert(_url);
+    NSAssert(_readyState == SR_CONNECTING && _inputStream == nil && _outputStream == nil, @"Cannot call open a connection more than once");
 
     NSInteger port = _url.port.integerValue;
     if (port == 0) {
@@ -502,7 +505,6 @@ static __strong NSData *CRLFCRLF;
     [_outputStream scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     [_inputStream scheduleInRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
     
-    NSLog(@"Connecting…");
     
     [_outputStream open];
     [_inputStream open];
@@ -572,6 +574,7 @@ static __strong NSData *CRLFCRLF;
 {
     dispatch_async(_workQueue, ^{
         if (self.readyState != SR_CLOSED) {
+            _failed = YES;
             dispatch_async(_callbackQueue, ^{
                 if ([self.delegate respondsToSelector:@selector(webSocket:didFailWithError:)]) {
                     [self.delegate webSocket:self didFailWithError:error];
@@ -599,6 +602,7 @@ static __strong NSData *CRLFCRLF;
 }
 - (void)send:(id)data;
 {
+    NSAssert(self.readyState != SR_CONNECTING, @"Invalid State: Cannot call send: until connection is open");
     // TODO: maybe not copy this for performance
     data = [data copy];
     dispatch_async(_workQueue, ^{
@@ -795,7 +799,6 @@ static inline BOOL closeCodeIsValid(int closeCode) {
             [self _handleFrameWithData:curData opCode:frame_header.opcode];
         } else {
             if (frame_header.fin) {
-//                assert(_currentFrameData.length == frame_header.payload_length);
                 [self _handleFrameWithData:_currentFrameData opCode:frame_header.opcode];
             } else {
                 // TODO add assert that opcode is not a control;
@@ -808,7 +811,7 @@ static inline BOOL closeCodeIsValid(int closeCode) {
                 [self _handleFrameWithData:newData opCode:frame_header.opcode];
             } else {
                 if (frame_header.fin) {
-                    [self _handleFrameWithData:_currentFrameData opCode:frame_header.opcode];
+                    [self _handleFrameWithData:self->_currentFrameData opCode:frame_header.opcode];
                 } else {
                     // TODO add assert that opcode is not a control;
                     [self _readFrameContinue];
@@ -977,11 +980,13 @@ static const uint8_t SRPayloadLenMask   = 0x7F;
         [_outputStream close];
         [_inputStream close];
         
-        dispatch_async(_callbackQueue, ^{
-            if ([self.delegate respondsToSelector:@selector(webSocket:didCloseWithCode:reason:wasClean:)]) {
-                [self.delegate webSocket:self didCloseWithCode:_closeCode reason:_closeReason wasClean:YES];
-            }
-        });
+        if (!_failed) {
+            dispatch_async(_callbackQueue, ^{
+                if ([self.delegate respondsToSelector:@selector(webSocket:didCloseWithCode:reason:wasClean:)]) {
+                    [self.delegate webSocket:self didCloseWithCode:_closeCode reason:_closeReason wasClean:YES];
+                }
+            });
+        }
     }
 }
 
@@ -1259,15 +1264,27 @@ static const size_t SRFrameHeaderOverhead = 32;
                 SRFastLog(@"NSStreamEventEndEncountered %@", aStream);
                 if (aStream.streamError) {
                     [self _failWithError:aStream.streamError];
+                } else {
+                    if (self.readyState != SR_CLOSED) {
+                        self.readyState = SR_CLOSED;
+                    }
+
+                    if (!_sentClose && !_failed) {
+                        _sentClose = YES;
+                        // If we get closed in this state it's probably not clean because we should be sending this when we send messages
+                        dispatch_async(_callbackQueue, ^{
+                            if ([self.delegate respondsToSelector:@selector(webSocket:didCloseWithCode:reason:wasClean:)]) {
+                                [self.delegate webSocket:self didCloseWithCode:0 reason:@"Stream end encountered" wasClean:NO];
+                            }
+                        });
+                    }
                 }
                 
-                if (self.readyState != SR_CLOSED) {
-                    self.readyState = SR_CLOSED;
-                }
                 break;
             }
                 
             case NSStreamEventHasBytesAvailable: {
+                SRFastLog(@"NSStreamEventHasBytesAvailable %@", aStream);
                 const int bufferSize = 2048;
                 uint8_t buffer[bufferSize];
                 
@@ -1289,11 +1306,13 @@ static const size_t SRFrameHeaderOverhead = 32;
             }
                 
             case NSStreamEventHasSpaceAvailable: {
+                SRFastLog(@"NSStreamEventHasSpaceAvailable %@", aStream);
                 [self _pumpWriting];
                 break;
             }
                 
             default:
+                SRFastLog(@"(default)  %@", aStream);
                 break;
         }
     });

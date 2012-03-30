@@ -1,18 +1,18 @@
 //
-//  CCSecondViewController.m
-//  ContinuousClient
+//  GMFirstViewController.m
+//  GrabMagic
 //
-//  Created by Aral Balkan on 28/02/2012.
+//  Created by Aral Balkan on 30/03/2012.
 //  Copyright (c) 2012 Naklab. All rights reserved.
 //
 
-#import "CCSecondViewController.h"
+#import "GMFirstViewController.h"
 
-@interface CCSecondViewController ()
+@interface GMFirstViewController ()
 
 @end
 
-@implementation CCSecondViewController
+@implementation GMFirstViewController
 
 - (void)viewDidLoad
 {

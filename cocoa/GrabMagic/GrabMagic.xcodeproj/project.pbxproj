@@ -1,0 +1,346 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		A7496AB9152612BF00EB44B8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7496AB8152612BF00EB44B8 /* UIKit.framework */; };
+		A7496ABB152612BF00EB44B8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7496ABA152612BF00EB44B8 /* Foundation.framework */; };
+		A7496ABD152612BF00EB44B8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7496ABC152612BF00EB44B8 /* CoreGraphics.framework */; };
+		A7496AC3152612BF00EB44B8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A7496AC1152612BF00EB44B8 /* InfoPlist.strings */; };
+		A7496AC5152612BF00EB44B8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A7496AC4152612BF00EB44B8 /* main.m */; };
+		A7496AC9152612BF00EB44B8 /* GMAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A7496AC8152612BF00EB44B8 /* GMAppDelegate.m */; };
+		A7496ACC152612BF00EB44B8 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A7496ACA152612BF00EB44B8 /* MainStoryboard.storyboard */; };
+		A7496ACF152612BF00EB44B8 /* GMFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7496ACE152612BF00EB44B8 /* GMFirstViewController.m */; };
+		A7496AD1152612BF00EB44B8 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = A7496AD0152612BF00EB44B8 /* first.png */; };
+		A7496AD3152612BF00EB44B8 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7496AD2152612BF00EB44B8 /* first@2x.png */; };
+		A7496AD6152612BF00EB44B8 /* GMSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A7496AD5152612BF00EB44B8 /* GMSecondViewController.m */; };
+		A7496AD8152612BF00EB44B8 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = A7496AD7152612BF00EB44B8 /* second.png */; };
+		A7496ADA152612BF00EB44B8 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7496AD9152612BF00EB44B8 /* second@2x.png */; };
+		A7496AE51526137700EB44B8 /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = A7496AE41526137700EB44B8 /* libicucore.dylib */; };
+		A7496AF71526166400EB44B8 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7496AF61526166400EB44B8 /* CFNetwork.framework */; };
+		A7496AFA1526166E00EB44B8 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7496AF91526166E00EB44B8 /* Security.framework */; };
+		A7496B051526186500EB44B8 /* base64.c in Sources */ = {isa = PBXBuildFile; fileRef = A7496AFE1526186500EB44B8 /* base64.c */; };
+		A7496B061526186500EB44B8 /* NSData+SRB64Additions.m in Sources */ = {isa = PBXBuildFile; fileRef = A7496B011526186500EB44B8 /* NSData+SRB64Additions.m */; };
+		A7496B071526186500EB44B8 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A7496B041526186500EB44B8 /* SRWebSocket.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		A7496AB4152612BF00EB44B8 /* GrabMagic.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrabMagic.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		A7496AB8152612BF00EB44B8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		A7496ABA152612BF00EB44B8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		A7496ABC152612BF00EB44B8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		A7496AC0152612BF00EB44B8 /* GrabMagic-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GrabMagic-Info.plist"; sourceTree = "<group>"; };
+		A7496AC2152612BF00EB44B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		A7496AC4152612BF00EB44B8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		A7496AC6152612BF00EB44B8 /* GrabMagic-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GrabMagic-Prefix.pch"; sourceTree = "<group>"; };
+		A7496AC7152612BF00EB44B8 /* GMAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMAppDelegate.h; sourceTree = "<group>"; };
+		A7496AC8152612BF00EB44B8 /* GMAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMAppDelegate.m; sourceTree = "<group>"; };
+		A7496ACB152612BF00EB44B8 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		A7496ACD152612BF00EB44B8 /* GMFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMFirstViewController.h; sourceTree = "<group>"; };
+		A7496ACE152612BF00EB44B8 /* GMFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMFirstViewController.m; sourceTree = "<group>"; };
+		A7496AD0152612BF00EB44B8 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		A7496AD2152612BF00EB44B8 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		A7496AD4152612BF00EB44B8 /* GMSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GMSecondViewController.h; sourceTree = "<group>"; };
+		A7496AD5152612BF00EB44B8 /* GMSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GMSecondViewController.m; sourceTree = "<group>"; };
+		A7496AD7152612BF00EB44B8 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		A7496AD9152612BF00EB44B8 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+		A7496AE41526137700EB44B8 /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
+		A7496AF61526166400EB44B8 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		A7496AF91526166E00EB44B8 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		A7496AFE1526186500EB44B8 /* base64.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = base64.c; sourceTree = "<group>"; };
+		A7496AFF1526186500EB44B8 /* base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = base64.h; sourceTree = "<group>"; };
+		A7496B001526186500EB44B8 /* NSData+SRB64Additions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+SRB64Additions.h"; sourceTree = "<group>"; };
+		A7496B011526186500EB44B8 /* NSData+SRB64Additions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+SRB64Additions.m"; sourceTree = "<group>"; };
+		A7496B021526186500EB44B8 /* SocketRocket-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SocketRocket-Prefix.pch"; sourceTree = "<group>"; };
+		A7496B031526186500EB44B8 /* SRWebSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SRWebSocket.h; sourceTree = "<group>"; };
+		A7496B041526186500EB44B8 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		A7496AB1152612BF00EB44B8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7496AFA1526166E00EB44B8 /* Security.framework in Frameworks */,
+				A7496AF71526166400EB44B8 /* CFNetwork.framework in Frameworks */,
+				A7496AE51526137700EB44B8 /* libicucore.dylib in Frameworks */,
+				A7496AB9152612BF00EB44B8 /* UIKit.framework in Frameworks */,
+				A7496ABB152612BF00EB44B8 /* Foundation.framework in Frameworks */,
+				A7496ABD152612BF00EB44B8 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		A7496AA9152612BF00EB44B8 = {
+			isa = PBXGroup;
+			children = (
+				A7496AF91526166E00EB44B8 /* Security.framework */,
+				A7496AF61526166400EB44B8 /* CFNetwork.framework */,
+				A7496AE41526137700EB44B8 /* libicucore.dylib */,
+				A7496AFD1526186500EB44B8 /* SocketRocket */,
+				A7496ABE152612BF00EB44B8 /* GrabMagic */,
+				A7496AB7152612BF00EB44B8 /* Frameworks */,
+				A7496AB5152612BF00EB44B8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A7496AB5152612BF00EB44B8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				A7496AB4152612BF00EB44B8 /* GrabMagic.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		A7496AB7152612BF00EB44B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A7496AB8152612BF00EB44B8 /* UIKit.framework */,
+				A7496ABA152612BF00EB44B8 /* Foundation.framework */,
+				A7496ABC152612BF00EB44B8 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		A7496ABE152612BF00EB44B8 /* GrabMagic */ = {
+			isa = PBXGroup;
+			children = (
+				A7496AC7152612BF00EB44B8 /* GMAppDelegate.h */,
+				A7496AC8152612BF00EB44B8 /* GMAppDelegate.m */,
+				A7496ACA152612BF00EB44B8 /* MainStoryboard.storyboard */,
+				A7496ACD152612BF00EB44B8 /* GMFirstViewController.h */,
+				A7496ACE152612BF00EB44B8 /* GMFirstViewController.m */,
+				A7496AD0152612BF00EB44B8 /* first.png */,
+				A7496AD2152612BF00EB44B8 /* first@2x.png */,
+				A7496AD4152612BF00EB44B8 /* GMSecondViewController.h */,
+				A7496AD5152612BF00EB44B8 /* GMSecondViewController.m */,
+				A7496AD7152612BF00EB44B8 /* second.png */,
+				A7496AD9152612BF00EB44B8 /* second@2x.png */,
+				A7496ABF152612BF00EB44B8 /* Supporting Files */,
+			);
+			path = GrabMagic;
+			sourceTree = "<group>";
+		};
+		A7496ABF152612BF00EB44B8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A7496AC0152612BF00EB44B8 /* GrabMagic-Info.plist */,
+				A7496AC1152612BF00EB44B8 /* InfoPlist.strings */,
+				A7496AC4152612BF00EB44B8 /* main.m */,
+				A7496AC6152612BF00EB44B8 /* GrabMagic-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A7496AFD1526186500EB44B8 /* SocketRocket */ = {
+			isa = PBXGroup;
+			children = (
+				A7496AFE1526186500EB44B8 /* base64.c */,
+				A7496AFF1526186500EB44B8 /* base64.h */,
+				A7496B001526186500EB44B8 /* NSData+SRB64Additions.h */,
+				A7496B011526186500EB44B8 /* NSData+SRB64Additions.m */,
+				A7496B021526186500EB44B8 /* SocketRocket-Prefix.pch */,
+				A7496B031526186500EB44B8 /* SRWebSocket.h */,
+				A7496B041526186500EB44B8 /* SRWebSocket.m */,
+			);
+			path = SocketRocket;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		A7496AB3152612BF00EB44B8 /* GrabMagic */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A7496ADD152612BF00EB44B8 /* Build configuration list for PBXNativeTarget "GrabMagic" */;
+			buildPhases = (
+				A7496AB0152612BF00EB44B8 /* Sources */,
+				A7496AB1152612BF00EB44B8 /* Frameworks */,
+				A7496AB2152612BF00EB44B8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GrabMagic;
+			productName = GrabMagic;
+			productReference = A7496AB4152612BF00EB44B8 /* GrabMagic.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		A7496AAB152612BF00EB44B8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = GM;
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = Naklab;
+			};
+			buildConfigurationList = A7496AAE152612BF00EB44B8 /* Build configuration list for PBXProject "GrabMagic" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = A7496AA9152612BF00EB44B8;
+			productRefGroup = A7496AB5152612BF00EB44B8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				A7496AB3152612BF00EB44B8 /* GrabMagic */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		A7496AB2152612BF00EB44B8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7496AC3152612BF00EB44B8 /* InfoPlist.strings in Resources */,
+				A7496ACC152612BF00EB44B8 /* MainStoryboard.storyboard in Resources */,
+				A7496AD1152612BF00EB44B8 /* first.png in Resources */,
+				A7496AD3152612BF00EB44B8 /* first@2x.png in Resources */,
+				A7496AD8152612BF00EB44B8 /* second.png in Resources */,
+				A7496ADA152612BF00EB44B8 /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		A7496AB0152612BF00EB44B8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A7496AC5152612BF00EB44B8 /* main.m in Sources */,
+				A7496AC9152612BF00EB44B8 /* GMAppDelegate.m in Sources */,
+				A7496ACF152612BF00EB44B8 /* GMFirstViewController.m in Sources */,
+				A7496AD6152612BF00EB44B8 /* GMSecondViewController.m in Sources */,
+				A7496B051526186500EB44B8 /* base64.c in Sources */,
+				A7496B061526186500EB44B8 /* NSData+SRB64Additions.m in Sources */,
+				A7496B071526186500EB44B8 /* SRWebSocket.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		A7496AC1152612BF00EB44B8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7496AC2152612BF00EB44B8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		A7496ACA152612BF00EB44B8 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				A7496ACB152612BF00EB44B8 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		A7496ADB152612BF00EB44B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		A7496ADC152612BF00EB44B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		A7496ADE152612BF00EB44B8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GrabMagic/GrabMagic-Prefix.pch";
+				INFOPLIST_FILE = "GrabMagic/GrabMagic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		A7496ADF152612BF00EB44B8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GrabMagic/GrabMagic-Prefix.pch";
+				INFOPLIST_FILE = "GrabMagic/GrabMagic-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		A7496AAE152612BF00EB44B8 /* Build configuration list for PBXProject "GrabMagic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7496ADB152612BF00EB44B8 /* Debug */,
+				A7496ADC152612BF00EB44B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A7496ADD152612BF00EB44B8 /* Build configuration list for PBXNativeTarget "GrabMagic" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A7496ADE152612BF00EB44B8 /* Debug */,
+				A7496ADF152612BF00EB44B8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = A7496AAB152612BF00EB44B8 /* Project object */;
+}
