@@ -34,8 +34,11 @@ int gridY = 5;
 Trackpad   trackPadViz;
 ////
 
+int screenWidth = 1280;
+int screenHeight = 720;
+
 void setup() {
-  size(1280,720);
+  size(screenWidth, screenHeight);
   background(0);
   
   fs = new FullScreen(this);
@@ -81,9 +84,12 @@ void setup() {
   trackPad.RegisterPrimaryPointDestroy(this);
 
   // create gui viz
-  trackPadViz = new Trackpad(new PVector(context.depthWidth()/2, context.depthHeight()/2,0),
-                                         gridX,gridY,50,50,15);  
-
+  //trackPadViz = new Trackpad(new PVector(context.depthWidth()/2, context.depthHeight()/2,0),
+  //                                       gridX,gridY,50,50,15);
+//  Trackpad(PVector center,int xRes,int yRes,int width,int height,int space)
+  
+  trackPadViz = new Trackpad(new PVector(screenWidth/2, screenHeight/2,0),
+                                         gridX,gridY,50,50,15);
   // Setting to size of movie not Kinect context
   //size(context.depthWidth(), context.depthHeight()); 
   smooth();
@@ -118,7 +124,7 @@ void draw(){
   context.update(sessionManager);
   
   // draw depthImageMap
-  image(context.depthImage(),0,0);
+  image(context.depthImage(),0,0, context.depthWidth()/2, context.depthHeight()/2);
   
   trackPadViz.draw();
 }
