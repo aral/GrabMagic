@@ -140,6 +140,16 @@ void draw(){
     image(context.depthImage(),0,0, context.depthWidth()/2, context.depthHeight()/2);
     trackPadViz.draw();
   }
+  
+  // Show calibration by color
+  if (isCalibrated) {
+      strokeWeight(20);
+      stroke(0, 255, 0);
+      line(0,0,screenWidth,0);
+      line(screenWidth, 0, screenWidth, screenHeight);
+      line(screenWidth, screenHeight, 0, screenHeight);
+      line(0, screenHeight, 0,0);
+  }
 }
 
 //
@@ -237,7 +247,7 @@ void onPrimaryPointCreate(XnVHandPointContext pContext,XnPoint3D ptFocus)
   println("onPrimaryPointCreate");
   
   trackPadViz.enable();
-  
+  isCalibrated = true;
   
 }
 
@@ -246,6 +256,7 @@ void onPrimaryPointDestroy(int nID)
   println("onPrimaryPointDestroy");
   
   trackPadViz.disable();
+  isCalibrated = false;
 }
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////
