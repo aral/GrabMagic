@@ -120,10 +120,6 @@ void movieEvent(Movie theMovie) {
 void draw(){
   image(theMovie, 0,0);
   
-  // TODO: Do broadcast only when a frame is grabbed.
-  //String json = "{\"frame\": 42}";
-  //socket.broadcast(json);
-  
   //
   // Kinect
   //
@@ -143,13 +139,27 @@ void draw(){
   
   // Show calibration by color
   if (isCalibrated) {
-      strokeWeight(20);
-      stroke(0, 255, 0);
-      line(0,0,screenWidth,0);
-      line(screenWidth, 0, screenWidth, screenHeight);
-      line(screenWidth, screenHeight, 0, screenHeight);
-      line(0, screenHeight, 0,0);
+     stroke(0, 255, 0);
+  } else { 
+     stroke(255,255,255); 
   }
+  
+  // Draw a border around the image to signal calibration
+  // Green = OK
+  // White = non-calibrated
+  strokeWeight(50);
+  line(0,0,screenWidth,0);
+  line(screenWidth, 0, screenWidth, screenHeight);
+  line(screenWidth, screenHeight, 0, screenHeight);
+  line(0, screenHeight, 0,0);
+ 
+  // If the user has grabbed the screen, flash white
+  if (hasGrabbed) {
+    fill(255,255,255);
+    rect(0,0,screenWidth, screenHeight);
+    hasGrabbed = false;
+  }
+ 
 }
 
 //
@@ -239,6 +249,8 @@ void onItemSelect(int nXIndex,int nYIndex,int eDir)
   socket.broadcast(""+movieTime);
   
   println("Movie time: " + movieTime);
+  
+  hasGrabbed = true;
    
 }
 
