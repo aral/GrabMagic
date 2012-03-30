@@ -8,7 +8,8 @@
 import fullscreen.*;
 
 // GSVideo has better performance
-import codeanticode.gsvideo.*;
+//import codeanticode.gsvideo.*;
+import processing.video.*;
 
 // Web socket support.
 import org.webbitserver.*;
@@ -18,7 +19,9 @@ import muthesius.net.WebSocketP5;
 import SimpleOpenNI.*;
 
 FullScreen fs;
-GSMovie theMovie;
+//GSMovie theMovie;
+Movie theMovie;
+
 WebSocketP5 socket;
 
 ////
@@ -47,7 +50,8 @@ void setup() {
   //fs.enter();
  
   // Start playing the movie
-  theMovie = new GSMovie(this, "trailer_720p.mov");
+  //theMovie = new GSMovie(this, "trailer_720p.mov");
+  theMovie = new Movie(this, "trailer_720p.mov");
   theMovie.frameRate(12);
   theMovie.loop();
   
@@ -104,7 +108,8 @@ void setup() {
 }
 
 // Movie 
-void movieEvent(GSMovie theMovie) {
+//void movieEvent(GSMovie theMovie) {
+void movieEvent(Movie theMovie) {
  theMovie.read();
 }
 
