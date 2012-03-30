@@ -18,6 +18,10 @@ import muthesius.net.WebSocketP5;
 // Kinect (SimpleOpenNI and NITE)
 import SimpleOpenNI.*;
 
+// Visual hints
+boolean isCalibrated = false; 
+boolean hasGrabbed = false;
+
 FullScreen fs;
 //GSMovie theMovie;
 Movie theMovie;
@@ -233,6 +237,8 @@ void onPrimaryPointCreate(XnVHandPointContext pContext,XnPoint3D ptFocus)
   println("onPrimaryPointCreate");
   
   trackPadViz.enable();
+  
+  
 }
 
 void onPrimaryPointDestroy(int nID)

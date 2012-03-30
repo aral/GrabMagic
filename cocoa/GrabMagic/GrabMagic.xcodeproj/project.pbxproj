@@ -28,6 +28,13 @@
 		A7496B071526186500EB44B8 /* SRWebSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = A7496B041526186500EB44B8 /* SRWebSocket.m */; };
 		A7496B0E15261C6E00EB44B8 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7496B0D15261C6E00EB44B8 /* MediaPlayer.framework */; };
 		A7496B1115261C8700EB44B8 /* trailer_720p.mov in Resources */ = {isa = PBXBuildFile; fileRef = A7496B1015261C8700EB44B8 /* trailer_720p.mov */; };
+		A7496B1F1526525300EB44B8 /* Button.png in Resources */ = {isa = PBXBuildFile; fileRef = A7496B1B1526525300EB44B8 /* Button.png */; };
+		A7496B201526525300EB44B8 /* Button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7496B1C1526525300EB44B8 /* Button@2x.png */; };
+		A7496B211526525300EB44B8 /* ButtonHighlighted.png in Resources */ = {isa = PBXBuildFile; fileRef = A7496B1D1526525300EB44B8 /* ButtonHighlighted.png */; };
+		A7496B221526525300EB44B8 /* ButtonHighlighted@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7496B1E1526525300EB44B8 /* ButtonHighlighted@2x.png */; };
+		A7496B251526538500EB44B8 /* Twitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A7496B241526538500EB44B8 /* Twitter.framework */; };
+		A7496B291526575B00EB44B8 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7496B281526575B00EB44B8 /* bg@2x.png */; };
+		A7496B2C152659A800EB44B8 /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7496B2A1526584A00EB44B8 /* UIButton+Glossy.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +69,14 @@
 		A7496B041526186500EB44B8 /* SRWebSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SRWebSocket.m; sourceTree = "<group>"; };
 		A7496B0D15261C6E00EB44B8 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		A7496B1015261C8700EB44B8 /* trailer_720p.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = trailer_720p.mov; sourceTree = "<group>"; };
+		A7496B1B1526525300EB44B8 /* Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Button.png; sourceTree = "<group>"; };
+		A7496B1C1526525300EB44B8 /* Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Button@2x.png"; sourceTree = "<group>"; };
+		A7496B1D1526525300EB44B8 /* ButtonHighlighted.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ButtonHighlighted.png; sourceTree = "<group>"; };
+		A7496B1E1526525300EB44B8 /* ButtonHighlighted@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ButtonHighlighted@2x.png"; sourceTree = "<group>"; };
+		A7496B241526538500EB44B8 /* Twitter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Twitter.framework; path = System/Library/Frameworks/Twitter.framework; sourceTree = SDKROOT; };
+		A7496B281526575B00EB44B8 /* bg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bg@2x.png"; sourceTree = "<group>"; };
+		A7496B2A1526584A00EB44B8 /* UIButton+Glossy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Glossy.m"; sourceTree = "<group>"; };
+		A7496B2B1526584A00EB44B8 /* UIButton+Glossy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Glossy.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7496B251526538500EB44B8 /* Twitter.framework in Frameworks */,
 				A7496B0E15261C6E00EB44B8 /* MediaPlayer.framework in Frameworks */,
 				A7496AFA1526166E00EB44B8 /* Security.framework in Frameworks */,
 				A7496AF71526166400EB44B8 /* CFNetwork.framework in Frameworks */,
@@ -85,12 +101,16 @@
 		A7496AA9152612BF00EB44B8 = {
 			isa = PBXGroup;
 			children = (
+				A7496B241526538500EB44B8 /* Twitter.framework */,
 				A7496B0F15261C7600EB44B8 /* Data */,
 				A7496B0D15261C6E00EB44B8 /* MediaPlayer.framework */,
 				A7496AF91526166E00EB44B8 /* Security.framework */,
 				A7496AF61526166400EB44B8 /* CFNetwork.framework */,
+				A7496B231526525900EB44B8 /* Assets */,
 				A7496AE41526137700EB44B8 /* libicucore.dylib */,
 				A7496AFD1526186500EB44B8 /* SocketRocket */,
+				A7496B2A1526584A00EB44B8 /* UIButton+Glossy.m */,
+				A7496B2B1526584A00EB44B8 /* UIButton+Glossy.h */,
 				A7496ABE152612BF00EB44B8 /* GrabMagic */,
 				A7496AB7152612BF00EB44B8 /* Frameworks */,
 				A7496AB5152612BF00EB44B8 /* Products */,
@@ -167,6 +187,18 @@
 			name = Data;
 			sourceTree = "<group>";
 		};
+		A7496B231526525900EB44B8 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				A7496B281526575B00EB44B8 /* bg@2x.png */,
+				A7496B1B1526525300EB44B8 /* Button.png */,
+				A7496B1C1526525300EB44B8 /* Button@2x.png */,
+				A7496B1D1526525300EB44B8 /* ButtonHighlighted.png */,
+				A7496B1E1526525300EB44B8 /* ButtonHighlighted@2x.png */,
+			);
+			name = Assets;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -226,6 +258,11 @@
 				A7496AD8152612BF00EB44B8 /* second.png in Resources */,
 				A7496ADA152612BF00EB44B8 /* second@2x.png in Resources */,
 				A7496B1115261C8700EB44B8 /* trailer_720p.mov in Resources */,
+				A7496B1F1526525300EB44B8 /* Button.png in Resources */,
+				A7496B201526525300EB44B8 /* Button@2x.png in Resources */,
+				A7496B211526525300EB44B8 /* ButtonHighlighted.png in Resources */,
+				A7496B221526525300EB44B8 /* ButtonHighlighted@2x.png in Resources */,
+				A7496B291526575B00EB44B8 /* bg@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -242,6 +279,7 @@
 				A7496AD6152612BF00EB44B8 /* GMSecondViewController.m in Sources */,
 				A7496B051526186500EB44B8 /* base64.c in Sources */,
 				A7496B061526186500EB44B8 /* NSData+SRB64Additions.m in Sources */,
+				A7496B2C152659A800EB44B8 /* UIButton+Glossy.m in Sources */,
 				A7496B071526186500EB44B8 /* SRWebSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
