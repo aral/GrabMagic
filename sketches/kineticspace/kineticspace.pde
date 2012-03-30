@@ -11,7 +11,6 @@
 boolean useFullscreen = false;
 int numberOfPoses = 2;
 
-int countdownCounter = 180;
 boolean captureStarted = false;
 
 // ============================================================
@@ -685,29 +684,6 @@ void setup()
 
 void draw()
 {
-  // Handle capture
-  if (captureStarted) {
-    
-    if (counter > 0) {
-     text("TIME: " + countdownCounter, 100, 100);
-     countdownCounter--;
-    }
-    if (countdownCounter <= -60) {
-        text("CAPTURING POSE!!!", 100, 100);
-        println("POSE " + keyIndex + " SAVED");
-        ringbuffer[0].copyBuffer(keyIndex);
-      
-        String str = Integer.toString(keyIndex);
-        pg.save(dataPath("pose" + str + ".png")); 
-        saveData(keyIndex);
-        foto[keyIndex] = loadImage(dataPath("pose" + str + ".png"));
-        empty[keyIndex] = false;
-        updateDisplay = true;
- 
-        captureStarted = false;   
-    }
-  }
-  
     // update the cam
     context.update();
   
@@ -1105,9 +1081,17 @@ void keyPressed()
   if ( (key >= '0') && (key <= '9') && (foundSkeleton) )
   {
       println("Key pressed, starting count-down");
-      keyIndex = key-'0';
-      captureStarted = true;
-      countdownCounter = 180;    
+      int keyIndex = key-'0';
+        text("CAPTURING POSE!!!", 100, 100);
+        println("POSE " + keyIndex + " SAVED");
+        ringbuffer[0].copyBuffer(keyIndex);
+      
+        String str = Integer.toString(keyIndex);
+        pg.save(dataPath("pose" + str + ".png")); 
+        saveData(keyIndex);
+        foto[keyIndex] = loadImage(dataPath("pose" + str + ".png"));
+        empty[keyIndex] = false;
+        updateDisplay = true;
   }
   
   switch(key)
