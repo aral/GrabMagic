@@ -28,6 +28,7 @@ import ddf.minim.*;
 // Visual hints
 boolean isCalibrated = false; 
 boolean hasGrabbed = false;
+boolean overlayToggled = false;
 
 FullScreen fs;
 GSMovie theMovie;
@@ -137,7 +138,7 @@ void setup() {
   //                                       gridX,gridY,50,50,15);
 //  Trackpad(PVector center,int xRes,int yRes,int width,int height,int space)
   
-  trackPadViz = new Trackpad(new PVector(screenWidth/2, screenHeight/2,0),
+  trackPadViz = new Trackpad(new PVector(context.depthWidth()/2, context.depthHeight()/2+20,0),
                                          gridX,gridY,50,50,15);
   // Setting to size of movie not Kinect context
   //size(context.depthWidth(), context.depthHeight()); 
@@ -159,41 +160,56 @@ void setup() {
 void draw(){
   //image(theMovie, 0,0);
   
+  if (overlayToggled) {
+    noStroke();  
+    fill(0,0,0);
+    rect(0,0,screenWidth, screenHeight);
+    overlayToggled = false;
+  }
+  
   // Render the movie frame using GLGraphics
     // Using the available() method and reading the new frame inside draw()
   // instead of movieEvent() is the most effective way to keep the 
   // audio and video synchronization.
-  if (theMovie.available()) {
-    theMovie.read();
-    // putPixelsIntoTexture() copies the frame pixels to the OpenGL texture
-    // encapsulated by the tex object. 
-    if (tex.putPixelsIntoTexture()) {
-      
-      // Calculating height to keep aspect ratio.      
-      float h = width * tex.height / tex.width;
-      float b = 0.5 * (height - h);
-
-      image(tex, 0, b, width, h);
-
-      /*
-        //Debug info      
-        String info = "Resolution: " + theMovie.width + "x" + theMovie.height +
-                      " , framerate: " + nfc(frate, 2) + 
-                      " , number of buffered frames: " + tex.getPixelBufferUse();
-          
-        fill(0);
-        rect(0, 0, textWidth(info), b);
-        fill(255);
-        text(info, 0, screenHeight-40);
   
-      fcount += 1;
-      int m = millis();
-      if (m - lastm > 1000 * fint) {
-        frate = float(fcount) / fint;
-        fcount = 0;
-        lastm = m; 
-      }      
-      */
+  if (!showKinectOverlay) {
+    
+    if (theMovie.available()) {
+      theMovie.read();
+      // putPixelsIntoTexture() copies the frame pixels to the OpenGL texture
+      // encapsulated by the tex object. 
+      if (tex.putPixelsIntoTexture()) {
+        float x = 0;
+        float actualHeight = height;
+        float actualWidth = width;
+  
+        // Calculating height to keep aspect ratio.      
+        float h = actualWidth * tex.height / tex.width;
+  
+        float b = 0.5 * (actualHeight - h);
+  
+        image(tex, x, b, actualWidth, h);
+  
+        /*
+          //Debug info      
+          String info = "Resolution: " + theMovie.width + "x" + theMovie.height +
+                        " , framerate: " + nfc(frate, 2) + 
+                        " , number of buffered frames: " + tex.getPixelBufferUse();
+            
+          fill(0);
+          rect(0, 0, textWidth(info), b);
+          fill(255);
+          text(info, 0, screenHeight-40);
+    
+        fcount += 1;
+        int m = millis();
+        if (m - lastm > 1000 * fint) {
+          frate = float(fcount) / fint;
+          fcount = 0;
+          lastm = m; 
+        }      
+        */
+      }
     }
   }
   
@@ -210,35 +226,42 @@ void draw(){
   
   if (showKinectOverlay) {
     // draw depthImageMap
-    image(context.depthImage(),0,40, context.depthWidth(), context.depthHeight());
+    
+    float overlayWidthOriginal = context.depthWidth();
+    float overlayHeightOriginal = context.depthHeight();
+    float overlayWidthIdeal = screenWidth;
+    float overlayHeightIdeal = overlayWidthIdeal * overlayHeightOriginal / overlayWidthOriginal;
+    
+    image(context.depthImage(),0,0, overlayWidthIdeal, overlayHeightIdeal);
     trackPadViz.draw();
   }
   
-  // Show calibration by color
-  if (isCalibrated) {
-     stroke(0, 255, 0);
-  } else { 
-     stroke(255,255,255); 
+  if (!showKinectOverlay) {
+    
+    // Show calibration by color
+    if (isCalibrated) {
+       stroke(0, 255, 0);
+    } else { 
+       stroke(255,255,255); 
+    }
+    
+    /*
+    if (hasGrabbed) {
+       stroke(0, 0, 0);
+       hasGrabbed = false; 
+    }
+    */
+    
+    // Draw a border around the image to signal calibration
+    // Green = OK
+    // White = non-calibrated
+    strokeWeight(30);
+    line(5,40,screenWidth-5,40);
+    line(screenWidth-5, 35, screenWidth-5, screenHeight-35);
+    line(screenWidth-5, screenHeight-40, 5, screenHeight-40);
+    line(5, screenHeight-35, 5, 35);
   }
   
-  /*
-  if (hasGrabbed) {
-     stroke(0, 0, 0);
-     hasGrabbed = false; 
-  }
-  */
-  
-
-
-  // Draw a border around the image to signal calibration
-  // Green = OK
-  // White = non-calibrated
-  strokeWeight(30);
-  line(5,40,screenWidth-5,40);
-  line(screenWidth-5, 35, screenWidth-5, screenHeight-35);
-  line(screenWidth-5, screenHeight-40, 5, screenHeight-40);
-  line(5, screenHeight-35, 5, 35);
- 
   // If the user has grabbed the screen, flash white  
   if (hasGrabbed) {
     noStroke();
@@ -283,6 +306,7 @@ void keyPressed()
   case 'o':
     showKinectOverlay = !showKinectOverlay;
     println("Toggling overlay…");
+    overlayToggled = true;
     break;
     
   case 'e':
