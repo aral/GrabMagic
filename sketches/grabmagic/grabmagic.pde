@@ -219,11 +219,15 @@ void draw(){
      stroke(255,255,255); 
   }
   
+  /*
   if (hasGrabbed) {
      stroke(0, 0, 0);
      hasGrabbed = false; 
   }
+  */
   
+
+
   // Draw a border around the image to signal calibration
   // Green = OK
   // White = non-calibrated
@@ -233,14 +237,14 @@ void draw(){
   line(screenWidth-5, screenHeight-40, 5, screenHeight-40);
   line(5, screenHeight-35, 5, 35);
  
-  // If the user has grabbed the screen, flash white
-  /*
+  // If the user has grabbed the screen, flash white  
   if (hasGrabbed) {
+    noStroke();
     fill(255,255,255);
-    rect(0,40,screenWidth, screenHeight-40);
+    rect(0, 40, screenWidth, screenHeight-80);
     hasGrabbed = false;
   }
- */
+ 
 }
 
 //
