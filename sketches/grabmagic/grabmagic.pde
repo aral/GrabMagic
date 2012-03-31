@@ -58,7 +58,7 @@ float frate;
 int fint = 3;
 
 int screenWidth = 1280;
-int screenHeight = 720;
+int screenHeight = 800;
 
 boolean showKinectOverlay = false;
 
@@ -219,22 +219,28 @@ void draw(){
      stroke(255,255,255); 
   }
   
+  if (hasGrabbed) {
+     stroke(0, 0, 255);
+     hasGrabbed = false; 
+  }
+  
   // Draw a border around the image to signal calibration
   // Green = OK
   // White = non-calibrated
-  strokeWeight(50);
-  line(0,0,screenWidth,0);
-  line(screenWidth, 0, screenWidth, screenHeight);
-  line(screenWidth, screenHeight, 0, screenHeight);
-  line(0, screenHeight, 0,0);
+  strokeWeight(30);
+  line(5,40,screenWidth-5,40);
+  line(screenWidth-5, 35, screenWidth-5, screenHeight-35);
+  line(screenWidth-5, screenHeight-40, 5, screenHeight-40);
+  line(5, screenHeight-35, 5, 35);
  
   // If the user has grabbed the screen, flash white
+  /*
   if (hasGrabbed) {
     fill(255,255,255);
-    rect(0,0,screenWidth, screenHeight);
+    rect(0,40,screenWidth, screenHeight-40);
     hasGrabbed = false;
   }
- 
+ */
 }
 
 //
