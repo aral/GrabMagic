@@ -220,7 +220,7 @@ void draw(){
   }
   
   if (hasGrabbed) {
-     stroke(0, 0, 255);
+     stroke(0, 0, 0);
      hasGrabbed = false; 
   }
   
