@@ -79,6 +79,9 @@
 -(void) resetSocketConnection 
 {
     NSLog(@"Left swipe: resetting the socket connection.");
+    // Also wipe out image
+    self.latestFrame = [[UIImage alloc] initWithData:nil];
+    
     [_webSocket close];
     _webSocket.delegate = nil;
     _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://aral.local:8080/p5websocket"]]];
@@ -96,7 +99,7 @@
     // Optional: set an image, url and initial text
     [twitter addImage:self.latestFrame];
     //[twitter addURL:[NSURL URLWithString:[NSString stringWithString:@"http://iOSDeveloperTips.com/"]]];
-    [twitter setInitialText:@"Just grabbed this from TV with my hand and transferred it to my phone… "];
+    [twitter setInitialText:@"#mipcube #mipboathack Just grabbed this from TV with my hand and transferred it to my phone… "];
     
     // Show the controller
     [self presentModalViewController:twitter animated:YES];
