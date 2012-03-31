@@ -7,9 +7,11 @@
 
 import fullscreen.*;
 
-// GSVideo has better performance
-//import codeanticode.gsvideo.*;
-import processing.video.*;
+// GSVideo has better performance - trying out OpenGL version
+import codeanticode.gsvideo.*;
+//import processing.video.*;
+import processing.opengl.*;
+import codeanticode.glgraphics.*;
 
 // Web socket support.
 import org.webbitserver.*;
@@ -28,8 +30,9 @@ boolean isCalibrated = false;
 boolean hasGrabbed = false;
 
 FullScreen fs;
-//GSMovie theMovie;
-Movie theMovie;
+GSMovie theMovie;
+//Movie theMovie;
+GLTexture tex;
 
 WebSocketP5 socket;
 
@@ -49,6 +52,10 @@ Trackpad   trackPadViz;
 Minim minim;
 AudioSample shutterSoundSample;
 
+// GSMovie/GLGraphics OpenGL stuff
+int fcount, lastm;
+float frate;
+int fint = 3;
 
 int screenWidth = 1280;
 int screenHeight = 720;
@@ -56,21 +63,37 @@ int screenHeight = 720;
 boolean showKinectOverlay = false;
 
 void setup() {
-  size(screenWidth, screenHeight);
+  size(screenWidth, screenHeight, GLConstants.GLGRAPHICS);
+  frameRate(90);
   background(0);
 
   // Sound
   minim = new Minim(this);
   shutterSoundSample = minim.loadSample("shutter.wav", 2048);
   
-  fs = new FullScreen(this);
-  fs.enter();
+  //fs = new FullScreen(this);
+  //fs.enter();
  
   // Start playing the movie
-  //theMovie = new GSMovie(this, "trailer_720p.mov");
-  theMovie = new Movie(this, "trailer_720p.mov");
+  theMovie = new GSMovie(this, "trailer_720p.mov");
+  //theMovie = new Movie(this, "trailer_720p.mov");
   //theMovie = new Movie(this, "trailer_mid.mp4");
-  theMovie.frameRate(12);
+
+ // Use texture tex as the destination for the movie pixels.
+  tex = new GLTexture(this);
+  theMovie.setPixelDest(tex);
+
+  // This is the size of the buffer where frames are stored
+  // when they are not rendered quickly enough.
+  tex.setPixelBufferSize(10);
+  // New frames put into the texture when the buffer is full
+  // are deleted forever, so this could lead dropeed frames:
+  tex.delPixelsWhenBufferFull(false);
+  // Otherwise, they are kept by gstreamer and will be sent
+  // again later. This avoids loosing any frames, but increases 
+  // the memory used by the application.
+
+  //theMovie.frameRate(12);
   theMovie.loop();
   
   // Get the socket ready 
@@ -127,12 +150,50 @@ void setup() {
 
 // Movie 
 //void movieEvent(GSMovie theMovie) {
-void movieEvent(Movie theMovie) {
- theMovie.read();
-}
+//void movieEvent(Movie theMovie) {
+// theMovie.read();
+//}
 
 void draw(){
-  image(theMovie, 0,0);
+  //image(theMovie, 0,0);
+  
+  // Render the movie frame using GLGraphics
+    // Using the available() method and reading the new frame inside draw()
+  // instead of movieEvent() is the most effective way to keep the 
+  // audio and video synchronization.
+  if (theMovie.available()) {
+    theMovie.read();
+    // putPixelsIntoTexture() copies the frame pixels to the OpenGL texture
+    // encapsulated by the tex object. 
+    if (tex.putPixelsIntoTexture()) {
+      
+      // Calculating height to keep aspect ratio.      
+      float h = width * tex.height / tex.width;
+      float b = 0.5 * (height - h);
+
+      image(tex, 0, b, width, h);
+
+      /*
+        //Debug info      
+        String info = "Resolution: " + theMovie.width + "x" + theMovie.height +
+                      " , framerate: " + nfc(frate, 2) + 
+                      " , number of buffered frames: " + tex.getPixelBufferUse();
+          
+        fill(0);
+        rect(0, 0, textWidth(info), b);
+        fill(255);
+        text(info, 0, screenHeight-40);
+  
+      fcount += 1;
+      int m = millis();
+      if (m - lastm > 1000 * fint) {
+        frate = float(fcount) / fint;
+        fcount = 0;
+        lastm = m; 
+      }      
+      */
+    }
+  }
   
   //
   // Kinect
