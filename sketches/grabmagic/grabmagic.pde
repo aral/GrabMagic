@@ -62,6 +62,8 @@ int screenHeight = 800;
 
 boolean showKinectOverlay = false;
 
+float lastSnapshotTime = 0;
+
 void setup() {
   size(screenWidth, screenHeight, GLConstants.GLGRAPHICS);
   frameRate(90);
@@ -208,7 +210,7 @@ void draw(){
   
   if (showKinectOverlay) {
     // draw depthImageMap
-    image(context.depthImage(),0,0, context.depthWidth()/2, context.depthHeight()/2);
+    image(context.depthImage(),0,40, context.depthWidth(), context.depthHeight());
     trackPadViz.draw();
   }
   
@@ -330,7 +332,17 @@ void onValueChange(float fXValue,float fYValue)
 
 void onItemSelect(int nXIndex,int nYIndex,int eDir)
 {
-  println("onItemSelect: nXIndex=" + nXIndex + " nYIndex=" + nYIndex + " eDir=" + eDir);
+
+  
+  if (millis() < lastSnapshotTime + 1000) {
+     println("Snapshots too close together, ignoring this one.");
+     return; 
+  }
+
+  // Updating the last snapshot time(stamp)
+  lastSnapshotTime = millis();
+
+  //println("onItemSelect: nXIndex=" + nXIndex + " nYIndex=" + nYIndex + " eDir=" + eDir);
   trackPadViz.push(nXIndex,nYIndex,eDir);
   
   // Get the time from the video and broadcast it (The MPMoviePlayerController is time based)
