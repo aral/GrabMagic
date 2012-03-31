@@ -47,7 +47,7 @@ Trackpad   trackPadViz;
 
 // Audio
 Minim minim;
-AudioPlayer shutterSoundPlayer;
+AudioSample shutterSoundSample;
 
 
 int screenWidth = 1280;
@@ -61,7 +61,7 @@ void setup() {
 
   // Sound
   minim = new Minim(this);
-  shutterSoundPlayer = minim.loadFile("shutter.wav", 2048);
+  shutterSoundSample = minim.loadSample("shutter.wav", 2048);
   
   fs = new FullScreen(this);
   fs.enter();
@@ -69,6 +69,7 @@ void setup() {
   // Start playing the movie
   //theMovie = new GSMovie(this, "trailer_720p.mov");
   theMovie = new Movie(this, "trailer_720p.mov");
+  //theMovie = new Movie(this, "trailer_mid.mp4");
   theMovie.frameRate(12);
   theMovie.loop();
   
@@ -193,6 +194,10 @@ void websocketOnClosed(WebSocketConnection con){
 
 void stop(){
 	socket.stop();
+        shutterSoundSample.close();
+        minim.stop();
+        
+        super.stop();
 }
 
 // 
@@ -263,7 +268,7 @@ void onItemSelect(int nXIndex,int nYIndex,int eDir)
   
   //println("Movie time: " + movieTime);
   
-  shutterSoundPlayer.play();
+  shutterSoundSample.trigger();
   
   hasGrabbed = true;
    
