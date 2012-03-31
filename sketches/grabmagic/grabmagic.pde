@@ -18,6 +18,11 @@ import muthesius.net.WebSocketP5;
 // Kinect (SimpleOpenNI and NITE)
 import SimpleOpenNI.*;
 
+// Sound
+import ddf.minim.*;
+
+
+
 // Visual hints
 boolean isCalibrated = false; 
 boolean hasGrabbed = false;
@@ -28,7 +33,7 @@ Movie theMovie;
 
 WebSocketP5 socket;
 
-////
+// OpenNI
 SimpleOpenNI          context;
 
 // NITE
@@ -39,7 +44,11 @@ int gridX = 7;
 int gridY = 5;
 
 Trackpad   trackPadViz;
-////
+
+// Audio
+Minim minim;
+AudioPlayer shutterSoundPlayer;
+
 
 int screenWidth = 1280;
 int screenHeight = 720;
@@ -49,9 +58,13 @@ boolean showKinectOverlay = false;
 void setup() {
   size(screenWidth, screenHeight);
   background(0);
+
+  // Sound
+  minim = new Minim(this);
+  shutterSoundPlayer = minim.loadFile("shutter.wav", 2048);
   
-  //fs = new FullScreen(this);
-  //fs.enter();
+  fs = new FullScreen(this);
+  fs.enter();
  
   // Start playing the movie
   //theMovie = new GSMovie(this, "trailer_720p.mov");
@@ -248,7 +261,9 @@ void onItemSelect(int nXIndex,int nYIndex,int eDir)
   float movieTime = theMovie.time();
   socket.broadcast(""+movieTime);
   
-  println("Movie time: " + movieTime);
+  //println("Movie time: " + movieTime);
+  
+  shutterSoundPlayer.play();
   
   hasGrabbed = true;
    
