@@ -69,7 +69,21 @@
     UISwipeGestureRecognizer *swipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(userDidSwipe)];
     [swipeRecognizer setDirection:UISwipeGestureRecognizerDirectionUp];
     [self.view addGestureRecognizer:swipeRecognizer];
+    
+    UISwipeGestureRecognizer *leftSwipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(resetSocketConnection)];
+    [leftSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
+    [self.view addGestureRecognizer:leftSwipeRecognizer];
         
+}
+
+-(void) resetSocketConnection 
+{
+    NSLog(@"Left swipe: resetting the socket connection.");
+    [_webSocket close];
+    _webSocket.delegate = nil;
+    _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://aral.local:8080/p5websocket"]]];
+    _webSocket.delegate = self;
+    [_webSocket open];
 }
 
 - (void)userDidSwipe
