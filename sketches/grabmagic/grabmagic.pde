@@ -138,7 +138,7 @@ void setup() {
   //                                       gridX,gridY,50,50,15);
 //  Trackpad(PVector center,int xRes,int yRes,int width,int height,int space)
   
-  trackPadViz = new Trackpad(new PVector(context.depthWidth()/2, context.depthHeight()/2+20,0),
+  trackPadViz = new Trackpad(new PVector(screenWidth/2, screenHeight/2,0),
                                          gridX,gridY,50,50,15);
   // Setting to size of movie not Kinect context
   //size(context.depthWidth(), context.depthHeight()); 
