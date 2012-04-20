@@ -61,6 +61,13 @@ int fint = 3;
 int screenWidth = 1280;
 int screenHeight = 800;
 
+// For TED - only one screen
+//int screenWidth = 800;
+//int screenHeight = 533;
+
+//1280 800
+//800  x     = 800*800/1280
+
 boolean showKinectOverlay = false;
 
 float lastSnapshotTime = 0;
@@ -80,7 +87,7 @@ void setup() {
   // Start playing the movie
   theMovie = new GSMovie(this, "trailer_720p.mov");
   //theMovie = new Movie(this, "trailer_720p.mov");
-  //theMovie = new Movie(this, "trailer_mid.mp4");
+  //theMovie = new GSMovie(this, "trailer_mid.mp4");
 
  // Use texture tex as the destination for the movie pixels.
   tex = new GLTexture(this);
@@ -278,6 +285,11 @@ void draw(){
 
 void websocketOnMessage(WebSocketConnection con, String msg){
   println(msg);
+  if (msg == "toggleKindleVision") {
+        showKinectOverlay = !showKinectOverlay;
+        println("Toggling overlay… triggered from iPhone!");
+        overlayToggled = true;
+  }
 }
 
 void websocketOnOpen(WebSocketConnection con){

@@ -73,6 +73,10 @@
     UISwipeGestureRecognizer *leftSwipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(resetSocketConnection)];
     [leftSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionLeft];
     [self.view addGestureRecognizer:leftSwipeRecognizer];
+    
+    UISwipeGestureRecognizer *rightSwipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tellTelevisionToToggleKindleVision)];
+    [rightSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
+    [self.view addGestureRecognizer:rightSwipeRecognizer];
         
 }
 
@@ -87,6 +91,12 @@
     _webSocket = [[SRWebSocket alloc] initWithURLRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://aral.local:8080/p5websocket"]]];
     _webSocket.delegate = self;
     [_webSocket open];
+}
+
+-(void) tellTelevisionToToggleKindleVision
+{
+    // Tell the Processing app to toggle Kindle Vision (tm)
+    [_webSocket send:@"toggleKindleVision"];
 }
 
 - (void)userDidSwipe
