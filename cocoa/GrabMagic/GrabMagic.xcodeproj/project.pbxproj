@@ -36,6 +36,10 @@
 		A7496B291526575B00EB44B8 /* bg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7496B281526575B00EB44B8 /* bg@2x.png */; };
 		A7496B2C152659A800EB44B8 /* UIButton+Glossy.m in Sources */ = {isa = PBXBuildFile; fileRef = A7496B2A1526584A00EB44B8 /* UIButton+Glossy.m */; };
 		A7496B341527323000EB44B8 /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7496B331527323000EB44B8 /* Icon@2x.png */; };
+		A7FB6E901542C72E006C6D3B /* grabmagic-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FB6E8F1542C72E006C6D3B /* grabmagic-background@2x.png */; };
+		A7FB6E931542C87D006C6D3B /* grabmagic-background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FB6E921542C87D006C6D3B /* grabmagic-background@2x.png */; };
+		A7FB6E951542C9FA006C6D3B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FB6E941542C9FA006C6D3B /* Icon@2x.png */; };
+		A7FB6E971542CAC7006C6D3B /* Icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = A7FB6E961542CAC7006C6D3B /* Icon@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +83,10 @@
 		A7496B2A1526584A00EB44B8 /* UIButton+Glossy.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+Glossy.m"; sourceTree = "<group>"; };
 		A7496B2B1526584A00EB44B8 /* UIButton+Glossy.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+Glossy.h"; sourceTree = "<group>"; };
 		A7496B331527323000EB44B8 /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		A7FB6E8F1542C72E006C6D3B /* grabmagic-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grabmagic-background@2x.png"; sourceTree = "<group>"; };
+		A7FB6E921542C87D006C6D3B /* grabmagic-background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "grabmagic-background@2x.png"; sourceTree = "<group>"; };
+		A7FB6E941542C9FA006C6D3B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
+		A7FB6E961542CAC7006C6D3B /* Icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -192,7 +200,11 @@
 		A7496B231526525900EB44B8 /* Assets */ = {
 			isa = PBXGroup;
 			children = (
+				A7FB6E921542C87D006C6D3B /* grabmagic-background@2x.png */,
+				A7FB6E8F1542C72E006C6D3B /* grabmagic-background@2x.png */,
+				A7FB6E961542CAC7006C6D3B /* Icon@2x.png */,
 				A7496B331527323000EB44B8 /* Icon@2x.png */,
+				A7FB6E941542C9FA006C6D3B /* Icon@2x.png */,
 				A7496B281526575B00EB44B8 /* bg@2x.png */,
 				A7496B1B1526525300EB44B8 /* Button.png */,
 				A7496B1C1526525300EB44B8 /* Button@2x.png */,
@@ -267,6 +279,10 @@
 				A7496B221526525300EB44B8 /* ButtonHighlighted@2x.png in Resources */,
 				A7496B291526575B00EB44B8 /* bg@2x.png in Resources */,
 				A7496B341527323000EB44B8 /* Icon@2x.png in Resources */,
+				A7FB6E901542C72E006C6D3B /* grabmagic-background@2x.png in Resources */,
+				A7FB6E931542C87D006C6D3B /* grabmagic-background@2x.png in Resources */,
+				A7FB6E951542C9FA006C6D3B /* Icon@2x.png in Resources */,
+				A7FB6E971542CAC7006C6D3B /* Icon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

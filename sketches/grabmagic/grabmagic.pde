@@ -58,15 +58,14 @@ int fcount, lastm;
 float frate;
 int fint = 3;
 
-int screenWidth = 1280;
-int screenHeight = 800;
+//int screenWidth = 1280;
+//int screenHeight = 800;
 
-// For TED - only one screen
-//int screenWidth = 800;
-//int screenHeight = 533;
-
-//1280 800
-//800  x     = 800*800/1280
+// For TED
+// Note: Projector is 1920x1080
+// I might have to tweak this during rehearsal.
+int screenWidth = screen.width;
+int screenHeight = screen.height;
 
 boolean showKinectOverlay = false;
 
@@ -262,11 +261,18 @@ void draw(){
     // Draw a border around the image to signal calibration
     // Green = OK
     // White = non-calibrated
+    /*
     strokeWeight(30);
     line(5,40,screenWidth-5,40);
     line(screenWidth-5, 35, screenWidth-5, screenHeight-35);
     line(screenWidth-5, screenHeight-40, 5, screenHeight-40);
     line(5, screenHeight-35, 5, 35);
+    */
+    strokeWeight(30);
+    line(5,5,screenWidth,5);
+    line(screenWidth-5, 5, screenWidth-5, screenHeight);
+    line(screenWidth, screenHeight-5, 5, screenHeight-5);
+    line(5, screenHeight, 5, 0);
   }
   
   // If the user has grabbed the screen, flash white  
@@ -289,6 +295,9 @@ void websocketOnMessage(WebSocketConnection con, String msg){
         showKinectOverlay = !showKinectOverlay;
         println("Toggling overlay… triggered from iPhone!");
         overlayToggled = true;
+  } else if (msg.equals("stopWatching")) {
+        println("Got asked to STOP WATCHING.");
+        sessionManager.EndSession();
   }
 }
 

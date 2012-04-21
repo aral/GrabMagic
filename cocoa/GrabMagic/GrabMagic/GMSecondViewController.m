@@ -77,7 +77,12 @@
     UISwipeGestureRecognizer *rightSwipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tellTelevisionToToggleKindleVision)];
     [rightSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionRight];
     [self.view addGestureRecognizer:rightSwipeRecognizer];
-        
+
+    UISwipeGestureRecognizer *downSwipeRecognizer = [[UISwipeGestureRecognizer alloc] initWithTarget:self action:@selector(tellTelevisionToStopWatching)];
+    [downSwipeRecognizer setDirection:UISwipeGestureRecognizerDirectionDown];
+    [self.view addGestureRecognizer:downSwipeRecognizer];
+    
+    
 }
 
 -(void) resetSocketConnection 
@@ -97,6 +102,13 @@
 {
     // Tell the Processing app to toggle Kindle Vision (tm)
     [_webSocket send:@"toggleKindleVision"];
+}
+
+-(void) tellTelevisionToStopWatching
+{
+    NSLog(@"Telling TV to stop watching for gestures...");
+    // Tell the Processing app to stop watching for gestures
+    [_webSocket send:@"stopWatching"];
 }
 
 - (void)userDidSwipe
