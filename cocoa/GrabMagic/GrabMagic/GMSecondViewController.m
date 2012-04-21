@@ -109,7 +109,7 @@
     // Optional: set an image, url and initial text
     [twitter addImage:self.latestFrame];
     //[twitter addURL:[NSURL URLWithString:[NSString stringWithString:@"http://iOSDeveloperTips.com/"]]];
-    [twitter setInitialText:@"#mipcube #mipboathack Just grabbed this from TV with my hand and transferred it to my phone… "];
+    [twitter setInitialText:@"I just grabbed this from my TV with my hand and transferred it to my phone! #ted"];
     
     // Show the controller
     [self presentModalViewController:twitter animated:YES];

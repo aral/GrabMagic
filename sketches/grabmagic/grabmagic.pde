@@ -285,7 +285,7 @@ void draw(){
 
 void websocketOnMessage(WebSocketConnection con, String msg){
   println(msg);
-  if (msg == "toggleKindleVision") {
+  if (msg.equals("toggleKindleVision")) {
         showKinectOverlay = !showKinectOverlay;
         println("Toggling overlay… triggered from iPhone!");
         overlayToggled = true;
