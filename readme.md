@@ -1,14 +1,14 @@
 Grab Magic
 ==========
 
-The best designed experiences make technology invisible and give people superpowers (what I call The Superman Effect). This is what I just made over the course of less a day in Cannes for #mipboathack 
+The best designed experiences make technology invisible and give people superpowers (what I call The Superman Effect). This is what I just made over the course of less a day in Cannes for #mipboathack
 
 You reach out to your TV and grab the current screen in your hand then transfer it to your phone by tapping its screen. Magic! :)
 
 Videos
 ------
 
-Here's an in-progress video from the boat, shot during the hackday: 
+Here's an in-progress video from the boat, shot during the hackday:
 http://www.youtube.com/watch?v=eYveEdhTgBs&list=UUVVB1n-Gzhx85jnTzJCfEYQ&index=1&feature=plcp
 
 …And my presentation to the judges at MipCube:
@@ -16,14 +16,14 @@ http://www.youtube.com/watch?feature=player_detailpage&v=VoykeSHTvSw#t=198s
 
 …And my final presentation at the MipTV keynote after winning:
 
-(Louisa's intro) http://www.youtube.com/watch?v=Y7UbOIKjd8U&feature=youtu.be&hd=1&t=56m3s 
+(Louisa's intro) http://www.youtube.com/watch?v=Y7UbOIKjd8U&feature=youtu.be&hd=1&t=56m3s
 
-(Direct link to my talk) http://www.youtube.com/watch?v=Y7UbOIKjd8U&feature=youtu.be&hd=1&t=58m22s
+(Direct link to my talk) http://www.youtube.com/watch?v=Y7UbOIKjd8U&feature=youtu.be&hd=1&t=1h02m21s
 
 The Source
 ----------
 
-Is straight from the hackday… it may not be the prettiest or best optimised - remember, it's a hack :)  
+Is straight from the hackday… it may not be the prettiest or best optimised - remember, it's a hack :)
 
 I just cleaned up the repository a bit and added the Processing libraries. I will make an effort to update these instructions in the coming days with links, etc.
 
